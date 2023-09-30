@@ -3,8 +3,7 @@ import { Col, Card, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import {
   addItemToCart,
-  removeItemFromCart,
-  clearCart,
+  removeItemFromCart
 } from '../features/cartSlice';
 function CartItems({ id, title, image, quantity, price }) {
   const dispatch = useDispatch();
@@ -60,7 +59,7 @@ function CartItems({ id, title, image, quantity, price }) {
             </div>
             <p className="mt-4">
               <span style={{ fontWeight: 'bold' }}>Product Price: </span> $
-              {quantity * price}{' '}
+              {quantity * price}
             </p>
           </div>
         </Card.Body>
