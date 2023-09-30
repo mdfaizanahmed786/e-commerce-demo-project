@@ -1,8 +1,10 @@
 import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -11,7 +13,10 @@ function Header() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/products">Products</Nav.Link>
         </Nav>
-        <Button style={{ position: 'relative' }}>
+        <Button
+          style={{ position: 'relative' }}
+          onClick={() => navigate('/cart')}
+        >
           <AiOutlineShoppingCart size={19} />
           <div
             style={{

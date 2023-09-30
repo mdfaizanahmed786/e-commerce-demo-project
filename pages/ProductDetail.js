@@ -21,14 +21,12 @@ function ProductDetail() {
     }
   }, []);
 
-  console.log(productInfo);
-
   if (loading) {
     return <Spinner animation="border" variant="primary" />;
   }
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4" style={{ minHeight: '100vh' }}>
       <Card className="shadow">
         <div className="d-md-flex">
           <div className="d-flex justify-content-center w-100">
