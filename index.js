@@ -10,6 +10,7 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function App() {
   return (

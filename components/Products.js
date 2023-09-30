@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Row, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Product from './Product';
 import useFetchProducts from '../hooks/useFetchProducts';
+import Skeleton from 'react-loading-skeleton';
 
 function Products({ slice = true }) {
   const { loading, products } = useFetchProducts();
@@ -11,9 +12,19 @@ function Products({ slice = true }) {
       <h2 className="mt-5 mb-3 text-center">Our Products</h2>
 
       {loading && (
-        <div className="d-flex justify-content-center align-items-center mt-5">
-          <Spinner animation="border" variant="primary" />
-        </div>
+        <Row>
+          {[1, 2, 3, 4, 5, 6].map((item, i) => (
+            <Col key={i} md={4} style={{ marginBottom: '20px' }}>
+              <Card>
+                <Card.Img variant="top" as={Skeleton} height={150} />
+                <Card.Body>
+                  <Card.Title as={Skeleton} />
+                  <Card.Text as={Skeleton} count={3} />
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       )}
 
       <Row>
