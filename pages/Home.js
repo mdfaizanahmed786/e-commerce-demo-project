@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import Slider from '../components/Home/Slider';
-import Products from '../components/Home/Products';
+import Products from '../components/Products';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {

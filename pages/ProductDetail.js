@@ -1,6 +1,7 @@
 import React from 'react';
+import Products from '../components/Products';
 function ProductDetail() {
-  return <div>This is product detail page..</div>;
+  return <Products slice={false} />;
 }
 
 export default ProductDetail;

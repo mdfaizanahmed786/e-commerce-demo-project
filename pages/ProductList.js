@@ -1,6 +1,7 @@
 import React from 'react';
+import Products from '../components/Products';
 function ProductList() {
-  return <h1>Product List</h1>;
+  return <Products slice={false} />;
 }
 
 export default ProductList;
