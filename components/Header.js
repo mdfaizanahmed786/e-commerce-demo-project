@@ -10,7 +10,7 @@ function Header() {
   const cartItems = useSelector((state) => state.cart.items);
   console.log(cartItems);
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" className="static shadow">
       <Container>
         <Nav>
           <Navbar.Brand as={Link} to="/">

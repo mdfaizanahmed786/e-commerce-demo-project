@@ -6,7 +6,7 @@ import {
   removeItemFromCart,
   clearCart,
 } from '../features/cartSlice';
-function CartItems({ id, title, image, quantity }) {
+function CartItems({ id, title, image, quantity, price }) {
   const dispatch = useDispatch();
   const addItem = () => {
     dispatch(
@@ -46,16 +46,22 @@ function CartItems({ id, title, image, quantity }) {
         </div>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="btn-group">
-              <Button variant="outline-secondary" onClick={removeItem}>
-                -
-              </Button>
-              <span className="mx-2 mt-2">{quantity}</span>
-              <Button variant="outline-secondary" onClick={addItem}>
-                +
-              </Button>
+          <div>
+            <div className="d-flex justify-content-between align-items-center">
+              <div className="btn-group">
+                <Button variant="outline-secondary" onClick={removeItem}>
+                  -
+                </Button>
+                <span className="mx-2 mt-2">{quantity}</span>
+                <Button variant="outline-secondary" onClick={addItem}>
+                  +
+                </Button>
+              </div>
             </div>
+            <p className="mt-4">
+              <span style={{ fontWeight: 'bold' }}>Product Price: </span> $
+              {quantity * price}{' '}
+            </p>
           </div>
         </Card.Body>
       </Card>
