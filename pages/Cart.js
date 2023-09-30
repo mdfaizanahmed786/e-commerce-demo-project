@@ -8,14 +8,13 @@ import { clearCart } from '../features/cartSlice';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
-  const totalPrice = useMemo(
-    () =>
-      cartItems.reduce((accumulator, currentItem) => {
-        return accumulator + currentItem.quantity * currentItem.price;
-      }, 0),
+  const totalPrice = useMemo(() => {
+    const rawTotal = cartItems.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.quantity * currentItem.price;
+    }, 0);
 
-    [cartItems]
-  );
+    return parseFloat(rawTotal.toFixed(2));
+  }, [cartItems]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -47,7 +46,7 @@ function Cart() {
           </div>
         </>
       ) : (
-        <div>
+        <div className="w-100 text-center">
           <h3>No items in your cart!</h3>
           <Button onClick={() => navigate('/products')} className="mt-4 ">
             Explore Products

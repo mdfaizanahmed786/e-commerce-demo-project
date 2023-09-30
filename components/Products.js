@@ -8,7 +8,7 @@ function Products({ slice = true }) {
 
   return (
     <Container>
-      <h2 className="mt-5 mb-3">Our Products</h2>
+      <h2 className="mt-5 mb-3 text-center">Our Products</h2>
 
       {loading && (
         <div className="d-flex justify-content-center align-items-center mt-5">
