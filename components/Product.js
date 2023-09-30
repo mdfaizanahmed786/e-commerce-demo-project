@@ -7,9 +7,9 @@ function Product({ title, description, price, image }) {
 
   return (
     <>
-      <Col md={4}>
-        <Card className="mt-4 shadow">
-          <Card.Img variant="top" src={image} />
+      <Col md={4} className="d-flex w-100 justify-content-center ">
+        <Card className="mt-4 shadow"  style={{width:"25rem"}}>
+          <Card.Img variant="top" src={image} className="p-3"/>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description.slice(0, 200)}...</Card.Text>
