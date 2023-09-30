@@ -1,10 +1,7 @@
 import React from 'react';
 import { Col, Card, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import {
-  addItemToCart,
-  removeItemFromCart
-} from '../features/cartSlice';
+import { addItemToCart, removeItemFromCart } from '../features/cartSlice';
 function CartItems({ id, title, image, quantity, price }) {
   const dispatch = useDispatch();
   const addItem = () => {
@@ -13,7 +10,6 @@ function CartItems({ id, title, image, quantity, price }) {
         id,
         title,
         image,
-        quantity,
       })
     );
   };
@@ -24,7 +20,6 @@ function CartItems({ id, title, image, quantity, price }) {
         id,
         title,
         image,
-        quantity,
       })
     );
   };

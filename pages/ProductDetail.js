@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Spinner, Card, Container, Button } from 'react-bootstrap';
+import { addItemToCart } from '../features/cartSlice';
 import AddToCartModal from '../components/Modal/AddToCartModal';
 function ProductDetail() {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const [productInfo, setProductInfo] = useState({});
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
@@ -20,6 +23,18 @@ function ProductDetail() {
         });
     }
   }, []);
+
+  const addItem = () => {
+    setShow(true);
+    dispatch(
+      addItemToCart({
+        id: productInfo.id,
+        title: productInfo.title,
+        image: productInfo.image,
+        price: productInfo.price,
+      })
+    );
+  };
 
   if (loading) {
     return <Spinner animation="border" variant="primary" />;
@@ -50,7 +65,7 @@ function ProductDetail() {
               {productInfo.price}
             </Card.Text>
 
-            <Button variant="outline-primary" onClick={() => setShow(true)}>
+            <Button variant="outline-primary" onClick={addItem}>
               Add to cart
             </Button>
           </Card.Body>
