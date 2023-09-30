@@ -11,7 +11,9 @@ function Product({ id, title, description, price, image }) {
     <>
       <Col md={4} className="d-flex w-100 justify-content-center">
         <Card className="mt-4 shadow cursor-pointer" style={{ width: '23rem', height:"fit-content" }}>
-          <Card.Img variant="top" src={image} className="p-3" />
+          <div className="d-flex w-100  justify-content-center">
+          <Card.Img variant="top" src={image} className="p-3" style={{width:"12rem"}}/>
+          </div>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text style={{ fontWeight: 'bold' }}>${price}</Card.Text>
