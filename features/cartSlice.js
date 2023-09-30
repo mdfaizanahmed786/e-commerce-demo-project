@@ -22,20 +22,18 @@ const cartSlice = createSlice({
       }
     },
     removeItemFromCart: (state, action) => {
-      console.log(action.payload)
-      const updatedItems = state.items.map((item) => {
-        if (item.id === action.payload.id) {
-          if (item.quantity == 1) {
-            return null;
-          } else {
-            return {
-              ...item,
-              quantity: item.quantity - 1,
-            };
-          }
+      const checkItem = state.items.filter(
+        (item) => item.id === action.payload.id
+      );
+      if (checkItem.length > 0) {
+        if (checkItem[0].quantity == 1) {
+          state.items = state.items.filter(
+            (item) => item.id !== action.payload.id
+          );
+        } else {
+          checkItem[0].quantity -= 1;
         }
-      });
-      state.items = updatedItems.filter((item) => item !== null);
+      }
     },
 
     clearCart: (state, action) => {
