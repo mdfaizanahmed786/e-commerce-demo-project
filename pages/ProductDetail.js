@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Spinner, Card, Container } from 'react-bootstrap';
+import { Spinner, Card, Container, Button } from 'react-bootstrap';
+import AddToCartModal from '../components/Modal/AddToCartModal';
 function ProductDetail() {
   const { id } = useParams();
   const [productInfo, setProductInfo] = useState({});
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -29,12 +31,15 @@ function ProductDetail() {
     <Container className="mt-4">
       <Card className="shadow">
         <div className="d-md-flex">
-          <Card.Img
-            variant="top"
-            className="p-3"
-            shadow
-            src={productInfo.image}
-          />
+          <div className="d-flex justify-content-center w-100">
+            <Card.Img
+              variant="top"
+              className="p-3"
+              shadow
+              src={productInfo.image}
+              style={{ width: '20rem' }}
+            />
+          </div>
           <Card.Body>
             <Card.Title>{productInfo.title}</Card.Title>
             <Card.Text>{productInfo.description}</Card.Text>
@@ -47,10 +52,13 @@ function ProductDetail() {
               {productInfo.price}
             </Card.Text>
 
-            {/* You can add more details as needed */}
+            <Button variant="outline-primary" onClick={() => setShow(true)}>
+              Add to cart
+            </Button>
           </Card.Body>
         </div>
       </Card>
+      <AddToCartModal show={show} setShow={setShow} />
     </Container>
   );
 }
