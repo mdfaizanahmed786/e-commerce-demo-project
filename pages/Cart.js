@@ -11,13 +11,26 @@ function Cart() {
   const dispatch = useDispatch();
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5" style={{ minHeight: '100vh' }}>
       {cartItems.length > 0 ? (
-        <Row>
-          {cartItems.map((item) => (
-            <CartItems {...item} key={item.id} />
-          ))}
-        </Row>
+        <>
+          <Row>
+            {cartItems.map((item) => (
+              <CartItems {...item} key={item.id} />
+            ))}
+          </Row>
+          <div className="d-flex justify-content-center">
+            <Button
+              variant="outline-danger"
+              onClick={() => dispatch(clearCart())}
+            >
+              Clear Cart
+            </Button>
+            <Button variant="outline-success" className="ml-3">
+              Checkout
+            </Button>
+          </div>
+        </>
       ) : (
         <div>
           <h3>No items in your cart!</h3>
@@ -26,13 +39,6 @@ function Cart() {
           </Button>
         </div>
       )}
-
-      <div className="d-flex justify-content-center">
-        <Button variant="outline-danger">Clear Cart</Button>
-        <Button variant="outline-success" className="ml-3">
-          Checkout
-        </Button>
-      </div>
     </Container>
   );
 }
