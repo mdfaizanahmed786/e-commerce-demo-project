@@ -9,12 +9,11 @@ function Product({ id, title, description, price, image }) {
 
   return (
     <>
-      <Col md={4} className="d-flex w-100 justify-content-center ">
-        <Card className="mt-4 shadow cursor-pointer" style={{ width: '19rem', height:"fit-content" }}>
+      <Col md={4} className="d-flex w-100 justify-content-center">
+        <Card className="mt-4 shadow cursor-pointer" style={{ width: '23rem', height:"fit-content" }}>
           <Card.Img variant="top" src={image} className="p-3" />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Text>{description.slice(0, 200)}...</Card.Text>
             <Card.Text style={{ fontWeight: 'bold' }}>${price}</Card.Text>
             <div className="d-flex">
               <Button variant="outline-primary" onClick={() => setShow(true)}>
