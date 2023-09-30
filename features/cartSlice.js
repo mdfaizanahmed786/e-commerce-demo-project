@@ -14,11 +14,12 @@ const cartSlice = createSlice({
       );
       if (checkExistingItem) {
         checkExistingItem.quantity += 1;
+      } else {
+        state.items.push({
+          ...action.payload,
+          quantity: 1,
+        });
       }
-      state.items.push({
-        ...action.payload,
-        quantity: 1,
-      });
     },
     removeItemFromCart: (state, action) => {
       const updatedItems = state.items.map((item) => {
