@@ -10,7 +10,7 @@ function Product({ id, title, description, price, image }) {
   return (
     <>
       <Col md={4} className="d-flex w-100 justify-content-center ">
-        <Card className="mt-4 shadow cursor-pointer" style={{ width: '19rem' }}>
+        <Card className="mt-4 shadow cursor-pointer" style={{ width: '19rem', height:"fit-content" }}>
           <Card.Img variant="top" src={image} className="p-3" />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
