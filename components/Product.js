@@ -4,14 +4,21 @@ import { Col, Card, Button } from 'react-bootstrap';
 import AddToCartModal from './Modal/AddToCartModal';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../features/cartSlice';
+import { addItemToCart } from '../features/cartSlice';
 function Product({ id, title, price, image }) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const addItemsToCart = () => {
     setShow(true);
-    dispatch();
+    dispatch(
+      addItemToCart({
+        id,
+        title,
+        price,
+        image,
+      })
+    );
   };
 
   return (
