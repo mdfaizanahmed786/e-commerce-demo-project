@@ -30,7 +30,7 @@ function Slider() {
           }}
         />
         <Carousel.Caption>
-          <h3>Jackets</h3>
+          <h3 classsName="text-dark">Jackets</h3>
           <p>Explore wide range of jackets</p>
         </Carousel.Caption>
       </Carousel.Item>

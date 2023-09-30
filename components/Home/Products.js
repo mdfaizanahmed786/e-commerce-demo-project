@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { Container, Row, Col, Card, Spinner, Button } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
+import Product from './Product';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -28,19 +29,7 @@ function Products() {
 
       <Row>
         {products.slice(8, 16).map((product) => (
-          <Col key={product.id} md={4}>
-            <Card className="mt-4 shadow">
-              <Card.Img variant="top" src={product.image} />
-              <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Text>{product.description.slice(0, 200)}...</Card.Text>
-                <Card.Text style={{ fontWeight: 'bold' }}>
-                  ${product.price}
-                </Card.Text>
-                <Button variant="outline-primary">Add to cart</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Product key={product.id} {...product} />
         ))}
       </Row>
     </Container>
