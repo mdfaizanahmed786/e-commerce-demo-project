@@ -22,6 +22,7 @@ const cartSlice = createSlice({
       }
     },
     removeItemFromCart: (state, action) => {
+      console.log(action.payload)
       const updatedItems = state.items.map((item) => {
         if (item.id === action.payload.id) {
           if (item.quantity == 1) {
