@@ -8,23 +8,27 @@ import Home from './pages/Home';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Header />
-        <div className="wrapper">
-          <Routes>
-            <Route path={'/'} exact element={<Home />} />
-            <Route path={'/products'} exact element={<ProductList />} />
-            <Route path={'/cart'} exact element={<Cart />} />
-            <Route path={'/products/:id'} exact element={<ProductDetail />} />
-          </Routes>
+    <Provider store={store}>
+      <Router>
+        <div>
+          <Header />
+          <div className="wrapper">
+            <Routes>
+              <Route path={'/'} exact element={<Home />} />
+              <Route path={'/products'} exact element={<ProductList />} />
+              <Route path={'/cart'} exact element={<Cart />} />
+              <Route path={'/products/:id'} exact element={<ProductDetail />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 

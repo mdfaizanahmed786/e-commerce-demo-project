@@ -3,22 +3,37 @@ import { useState } from 'react';
 import { Col, Card, Button } from 'react-bootstrap';
 import AddToCartModal from './Modal/AddToCartModal';
 import { useNavigate } from 'react-router-dom';
-function Product({ id, title, description, price, image }) {
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../features/cartSlice';
+function Product({ id, title, price, image }) {
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const addItemsToCart = () => {
+    setShow(true);
+    dispatch();
+  };
 
   return (
     <>
       <Col md={4} className="d-flex w-100 justify-content-center">
-        <Card className="mt-4 shadow cursor-pointer" style={{ width: '23rem', height:"fit-content" }}>
+        <Card
+          className="mt-4 shadow cursor-pointer"
+          style={{ width: '23rem', height: 'fit-content' }}
+        >
           <div className="d-flex w-100  justify-content-center">
-          <Card.Img variant="top" src={image} className="p-3" style={{width:"12rem"}}/>
+            <Card.Img
+              variant="top"
+              src={image}
+              className="p-3"
+              style={{ width: '12rem' }}
+            />
           </div>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text style={{ fontWeight: 'bold' }}>${price}</Card.Text>
             <div className="d-flex">
-              <Button variant="outline-primary" onClick={() => setShow(true)}>
+              <Button variant="outline-primary" onClick={addItemsToCart}>
                 Add to cart
               </Button>
               <Button
