@@ -14,10 +14,10 @@ function Footer() {
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
               <li>
-                <p href="/">Home</p>
+                <p>Home</p>
               </li>
               <li>
-                <p href="/products">Products</p>
+                <p>Products</p>
               </li>
             </ul>
           </Col>
