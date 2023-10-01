@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 function Header() {
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
   return (
     <Navbar bg="dark" variant="dark" className="static shadow">
       <Container>

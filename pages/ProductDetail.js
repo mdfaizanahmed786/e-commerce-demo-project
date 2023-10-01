@@ -37,7 +37,14 @@ function ProductDetail() {
   };
 
   if (loading) {
-    return <Spinner animation="border" variant="primary" />;
+    return (
+      <div
+        style={{ minHeight: '100vh' }}
+        className="d-flex justify-content-center align-items-center"
+      >
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
   }
 
   return (
