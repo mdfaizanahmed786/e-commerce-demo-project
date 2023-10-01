@@ -11,9 +11,10 @@ function Slider() {
           alt="First slide"
           style={{
             objectFit: 'cover',
+            width: 'auto',
+            maxHeight: '500px',
           }}
         />
-       
       </Carousel.Item>
       <Carousel.Item className="d-flex justify-content-center">
         <img
@@ -22,9 +23,10 @@ function Slider() {
           alt="Second slide"
           style={{
             objectFit: 'cover',
+            width: 'auto',
+            maxHeight: '500px',
           }}
         />
-      
       </Carousel.Item>
       <Carousel.Item className="d-flex justify-content-center">
         <img
@@ -33,9 +35,10 @@ function Slider() {
           alt="Third slide"
           style={{
             objectFit: 'cover',
+            width: 'auto',
+            maxHeight: '500px',
           }}
         />
-       
       </Carousel.Item>
     </Carousel>
   );
