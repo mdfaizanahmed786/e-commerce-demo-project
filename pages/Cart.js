@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../features/cartSlice';
 import CheckOutModal from '../components/Modal/CheckOutModal';
+import EmptyCartLogo from '../assets/svg/emptyCart.svg';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -57,6 +58,7 @@ function Cart() {
           <Button onClick={() => navigate('/products')} className="mt-4 ">
             Explore Products
           </Button>
+          <EmptyCartLogo />
         </div>
       )}
       <CheckOutModal
