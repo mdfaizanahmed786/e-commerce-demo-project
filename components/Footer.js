@@ -21,10 +21,16 @@ function Footer() {
               </li>
             </ul>
           </Col>
+          <Col md={4}>
+            <h5>Admin</h5>
+            <p>Email: faizan@gmail.com</p>
+          </Col>
         </Row>
       </Container>
-      <div className="text-center pt-2 bg-secondary d-flex justify-content-center align-items-center w-100 h-100">
-        <p>&copy; 2023 Our E-commerce site. All rights reserved.</p>
+      <div className="text-center pt-2  bg-secondary d-flex justify-content-center align-items-center w-100 h-100">
+        <p className="mt-2">
+          &copy; 2023 Our E-commerce site. All rights reserved.
+        </p>
       </div>
     </footer>
   );

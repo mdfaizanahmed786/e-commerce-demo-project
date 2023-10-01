@@ -54,7 +54,7 @@ function CartItems({ id, title, image, quantity, price }) {
             </div>
             <p className="mt-4">
               <span style={{ fontWeight: 'bold' }}>Product Price: </span> $
-              {quantity * price}
+              {parseFloat((quantity * price).toFixed(2))}
             </p>
           </div>
         </Card.Body>
