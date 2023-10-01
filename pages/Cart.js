@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, Row, Button } from 'react-bootstrap';
 import CartItems from '../components/CartItems';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../features/cartSlice';
+import CheckOutModal from '../components/Modal/CheckOutModal';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
+  const [showSuccessCartModal, setShowSuccessCartModal] = useState(false);
   const totalPrice = useMemo(() => {
     const rawTotal = cartItems.reduce((accumulator, currentItem) => {
       return accumulator + currentItem.quantity * currentItem.price;
@@ -39,7 +41,11 @@ function Cart() {
               >
                 Clear Cart
               </Button>
-              <Button variant="outline-success" className="ml-3">
+              <Button
+                variant="outline-success"
+                onClick={() => setShowSuccessCartModal(true)}
+                className="ml-3"
+              >
                 Checkout
               </Button>
             </div>
@@ -53,6 +59,10 @@ function Cart() {
           </Button>
         </div>
       )}
+      <CheckOutModal
+        show={showSuccessCartModal}
+        setShow={setShowSuccessCartModal}
+      />
     </Container>
   );
 }
