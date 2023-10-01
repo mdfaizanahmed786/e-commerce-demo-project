@@ -12,7 +12,7 @@ function Slider() {
           style={{
             objectFit: 'cover',
             width: 'auto',
-            maxHeight: '500px',
+            maxHeight: '550px',
           }}
         />
       </Carousel.Item>
@@ -24,7 +24,7 @@ function Slider() {
           style={{
             objectFit: 'cover',
             width: 'auto',
-            maxHeight: '500px',
+            maxHeight: '550px',
           }}
         />
       </Carousel.Item>
@@ -36,7 +36,7 @@ function Slider() {
           style={{
             objectFit: 'cover',
             width: 'auto',
-            maxHeight: '500px',
+            maxHeight: '550px',
           }}
         />
       </Carousel.Item>
