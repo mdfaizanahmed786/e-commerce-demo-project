@@ -4,8 +4,9 @@ import { Col, Card, Button } from 'react-bootstrap';
 import AddToCartModal from './Modal/AddToCartModal';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { AiFillStar } from 'react-icons/ai';
 import { addItemToCart } from '../features/cartSlice';
-function Product({ id, title, price, image }) {
+function Product({ id, title, price, image, rating }) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Product({ id, title, price, image }) {
         title,
         price,
         image,
+        rating,
       })
     );
   };
@@ -38,6 +40,13 @@ function Product({ id, title, price, image }) {
           </div>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
+            <Card.Text>
+              {Array(parseInt(rating.rate))
+                .fill()
+                .map((_, i) => (
+                  <AiFillStar color="#007bff" />
+                ))}{' '}
+            </Card.Text>
             <Card.Text style={{ fontWeight: 'bold' }}>${price}</Card.Text>
             <div className="d-flex">
               <Button variant="outline-primary" onClick={addItemsToCart}>

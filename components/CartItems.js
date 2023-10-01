@@ -1,8 +1,9 @@
 import React from 'react';
 import { Col, Card, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { AiFillStar } from 'react-icons/ai';
 import { addItemToCart, removeItemFromCart } from '../features/cartSlice';
-function CartItems({ id, title, image, quantity, price }) {
+function CartItems({ id, title, image, quantity, price, rating }) {
   const dispatch = useDispatch();
   const addItem = () => {
     dispatch(
@@ -10,6 +11,7 @@ function CartItems({ id, title, image, quantity, price }) {
         id,
         title,
         image,
+        rating
       })
     );
   };
@@ -40,13 +42,23 @@ function CartItems({ id, title, image, quantity, price }) {
         </div>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
+          <Card.Text>
+            {Array(parseInt(rating.rate))
+              .fill()
+              .map((_, i) => (
+                <AiFillStar color="#007bff" />
+              ))}{' '}
+          </Card.Text>
           <div>
             <div className="d-flex justify-content-between align-items-center">
               <div className="btn-group">
                 <Button variant="outline-secondary" onClick={removeItem}>
                   -
                 </Button>
-                <span className="mx-2 mt-2">{quantity}</span>
+                <span className="mx-2 mt-2">
+                  <span> </span>
+                  {quantity}
+                </span>
                 <Button variant="outline-secondary" onClick={addItem}>
                   +
                 </Button>
