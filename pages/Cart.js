@@ -6,7 +6,6 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearCart } from '../features/cartSlice';
 import CheckOutModal from '../components/Modal/CheckOutModal';
-import EmptyCartLogo from '../assets/svg/emptyCart.svg';
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -55,10 +54,20 @@ function Cart() {
       ) : (
         <div className="w-100 text-center">
           <h3>No items in your cart!</h3>
-          <Button onClick={() => navigate('/products')} className="mt-4 ">
-            Explore Products
-          </Button>
-          <EmptyCartLogo />
+          <div>
+            <div>
+              <img
+                src="https://i.ibb.co/FwvstJL/undraw-empty-cart-co35.png"
+                style={{
+                  width: 'auto',
+                  maxHeight: '180px',
+                }}
+              />
+            </div>
+            <Button onClick={() => navigate('/products')} className="mt-5 ">
+              Explore Products
+            </Button>
+          </div>
         </div>
       )}
       <CheckOutModal
