@@ -44,7 +44,7 @@ function Product({ id, title, price, image, rating }) {
               {Array(parseInt(rating.rate))
                 .fill()
                 .map((_, i) => (
-                  <AiFillStar color="#007bff" />
+                  <AiFillStar key={i} color="#007bff" />
                 ))}{' '}
             </Card.Text>
             <Card.Text style={{ fontWeight: 'bold' }}>${price}</Card.Text>

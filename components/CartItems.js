@@ -11,7 +11,7 @@ function CartItems({ id, title, image, quantity, price, rating }) {
         id,
         title,
         image,
-        rating
+        rating,
       })
     );
   };
@@ -46,11 +46,13 @@ function CartItems({ id, title, image, quantity, price, rating }) {
             {Array(parseInt(rating.rate))
               .fill()
               .map((_, i) => (
-                <AiFillStar color="#007bff" />
-              ))}{' '}
+                <AiFillStar key={i} color="#007bff" />
+              ))}
           </Card.Text>
           <div>
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center">
+            <div style={{fontWeight:"bold"}}>Quantity: </div>
+            <div className="d-flex justify-content-between ml-3 align-items-center">
               <div className="btn-group">
                 <Button variant="outline-secondary" onClick={removeItem}>
                   -
@@ -63,6 +65,7 @@ function CartItems({ id, title, image, quantity, price, rating }) {
                   +
                 </Button>
               </div>
+            </div>
             </div>
             <p className="mt-4">
               <span style={{ fontWeight: 'bold' }}>Product Price: </span> $

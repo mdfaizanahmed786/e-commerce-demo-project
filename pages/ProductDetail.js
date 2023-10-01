@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Spinner, Card, Container, Button } from 'react-bootstrap';
 import { addItemToCart } from '../features/cartSlice';
+import { AiFillStar } from 'react-icons/ai';
 import AddToCartModal from '../components/Modal/AddToCartModal';
 function ProductDetail() {
   const { id } = useParams();
@@ -32,6 +33,7 @@ function ProductDetail() {
         title: productInfo.title,
         image: productInfo.image,
         price: productInfo.price,
+        rating: productInfo.rating,
       })
     );
   };
@@ -62,9 +64,16 @@ function ProductDetail() {
           </div>
           <Card.Body>
             <Card.Title>{productInfo.title}</Card.Title>
+            <Card.Text>
+              {Array(parseInt(productInfo.rating?.rate) || 5)
+                .fill()
+                .map((_, i) => (
+                  <AiFillStar key={i} color="#007bff" />
+                ))}
+            </Card.Text>
             <Card.Text>{productInfo.description}</Card.Text>
             <Card.Text>
-              <span style={{ fontWeight: 'bold' }}>Category</span>:{' '}
+              <span style={{ fontWeight: 'bold' }}>Category: </span>
               {productInfo.category}
             </Card.Text>
             <Card.Text>
