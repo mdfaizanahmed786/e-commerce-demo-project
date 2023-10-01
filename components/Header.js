@@ -9,7 +9,7 @@ function Header() {
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   return (
-    <Navbar bg="dark" variant="dark" className="static shadow">
+    <Navbar bg="dark" variant="dark" className="sticky-top shadow">
       <Container>
         <Nav>
           <Navbar.Brand as={Link} to="/">
